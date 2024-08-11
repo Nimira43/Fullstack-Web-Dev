@@ -1,1 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Bungee Outline', cursive;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+.box {
+  position: relative;
+  width: 600px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  color: beige;
+  font-size: 5em;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px #ff4500,
+               0 0 20px #ff4500,
+               0 0 40px #ff4500,
+               0 0 80px #ff4500,
+               0 0 120px #ff4500;
+}
+
+.lightbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 100%;
+  background: beige;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff4500,
+               0 0 20px #ff4500,
+               0 0 40px #ff4500,
+               0 0 80px #ff4500,
+               0 0 120px #ff4500;
+  animation: lightbar 5s linear infinite;
+  z-index: 2;
+}
+
+@keyframes lightbar {
+  0% {
+    transform: scaleY(0) translateX(0);
+  }
+  10% {
+    transform: scaleY(1) translateX(0);
+  }
+  80% {
+    transform: scaleY(1) translateX(calc(600px - 10px));
+  }
+  100% {
+    transform: scaleY(0) translateX(calc(600px - 10px));
+  }
+}
+
+.toplayer {
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: beige;
+  box-shadow: 0 0 10px #ff4500,
+              0 0 20px #ff4500,
+              0 0 40px #ff4500,
+              0 0 80px #ff4500,
+              0 0 120px #ff4500;
+  animation: toplayer 10s linear infinite;
+}
+
+@keyframes toplayer {
+  5% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  45%,
+  50% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  50.001%,
+  55% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+  95% {
+    transform: translateX(0)
+  }
+}
